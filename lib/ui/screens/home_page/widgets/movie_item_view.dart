@@ -9,6 +9,7 @@ import 'package:tmdb_flutter/core/network/response_models/configuration_response
 import 'package:tmdb_flutter/core/network/response_models/up_coming_movies_response.dart';
 import 'package:tmdb_flutter/core/share_providers/local_db_provider/local_db_provider.dart';
 import 'package:tmdb_flutter/core/share_providers/movies_provider/movies_provider.dart';
+import 'package:tmdb_flutter/ui/components/canched_network_image.dart';
 
 import '../../../components/loader.dart';
 
@@ -59,24 +60,7 @@ class MovieItemView extends ConsumerWidget {
   Widget buildMoviePoster({required WidgetRef ref}) {
 
     String imagePath =  ref.read(movieRepoProvider).configurationResponseModel.images!.baseUrl! + ref.read(movieRepoProvider).configurationResponseModel.images!.posterSizes!.last;
-
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(10.0),
-      child: CachedNetworkImage(
-
-        imageUrl: imagePath + movie.backdropPath! ?? '',
-        imageBuilder: (context, imageProvider) => Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: imageProvider,
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
-        placeholder: (context, url) => const Center(child: buildLoader()),
-        errorWidget: (context, url, error) => const Center(child: Icon(Icons.error)),
-      ),
-    );
+    return MvCachedNetWorkImage(image: imagePath + movie.backdropPath! ?? '');
   }
 
 }

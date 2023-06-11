@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class IndividualMovieDetailResponse {
   bool? adult;
   String? backdropPath;
@@ -144,6 +146,12 @@ class IndividualMovieDetailResponse {
     data['vote_count'] = this.voteCount;
     return data;
   }
+
+  String returnFormattedDate(){
+    DateTime date = DateTime.parse(releaseDate!);
+    String formattedDate = DateFormat('MMMM dd, yyyy').format(date);
+    return formattedDate;
+  }
 }
 
 class BelongsToCollection {
@@ -254,4 +262,6 @@ class SpokenLanguages {
     data['name'] = this.name;
     return data;
   }
+
+
 }

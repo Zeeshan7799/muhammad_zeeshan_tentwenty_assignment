@@ -47,6 +47,7 @@ dependencies:
   freezed_annotation: ^2.2.0
   cached_network_image:
   api_cache_manager: ^1.0.2
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:

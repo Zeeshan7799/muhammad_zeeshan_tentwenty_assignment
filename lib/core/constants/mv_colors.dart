@@ -13,8 +13,14 @@ class MVColors{
   static const Color MV_BLACK = Color(0xff564CA3);
   static const Color AMBER = Color(0xff2E2739);
 
-// HomePage Colors ----------------------------------------------------------
+  // HomePage Colors ----------------------------------------------------------
   static const Color HOMEPAGE_WATCH_COLOR = Color(0xff202C43);
+
+  // Movie Detail Colors ----------------------------------------------------------
+  static const Color OVERVIEW_COLOR = Color(0xff8F8F8F);
+
+  // Divider Colors ----------------------------------------------------------
+  static const Color DIVIDER_COLOR = Color(0xff3D3D3D);
 
 
 }
