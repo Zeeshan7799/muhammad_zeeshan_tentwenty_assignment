@@ -52,11 +52,13 @@ class MoviesRepository {
     if (!isUpComingMoviesExist) {
       try {
         final res = await _dioClient.get(ApiUrlConstants.endPointUpComingMovies);
-        final upComingMoviesResponse = UpComingMoviesResponse.fromJson(res.data);
+        final response = UpComingMoviesResponse.fromJson(res.data);
+        upComingMoviesResponse = response;
+
         //Saving in local cache db
         localDb.saveUpComingMovies(upComingResponse: json.encode(res.data));
 
-        return upComingMoviesResponse;
+        return response;
       } on DioException catch (e) {
         final errorMessage = DioExceptions.fromDioError(e);
         debugPrint(errorMessage.toString());
